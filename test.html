@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Canvas PoC — hashes</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 18px; color:#111; }
+    canvas { image-rendering: pixelated; border:1px solid #ddd; display:block; margin-bottom:12px; }
+    .row { margin: 8px 0; }
+    .label { font-weight:600; margin-right:8px; }
+    code { background:#f7f7f7; padding:4px 6px; border-radius:4px; }
+  </style>
+</head>
+<body>
+<h3>Canvas PoC — hash of full ImageData and alpha-only hash</h3>
+
+<!-- small canvas -->
+<canvas id="c4" width="12" height="12" aria-hidden="true"></canvas>
+
+<div class="row">
+  <span class="label">hash (all bytes):</span><code id="hashC4">—</code>
+</div>
+<div class="row">
+  <span class="label">hash (alpha only):</span><code id="hashC4a">—</code>
+</div>
+
+<script>
+  // small 32-bit djb2-like hash used for demo
+  function hashBytesToHex(bytes) {
+    let h = 5381;
+    for (let i = 0; i < bytes.length; i++) {
+      h = ((h << 5) + h) + bytes[i]; // h * 33 + b
+      h |= 0; // keep 32-bit signed
+    }
+    return (h >>> 0).toString(16).padStart(8, '0');
+  }
+
+  function hashImageData(imgDataArray) {
+    return hashBytesToHex(imgDataArray);
+  }
+
+  function hashAlphaChannel(data) {
+    let hash = 5381;
+    for (let i = 3; i < data.length; i += 4) { // take every 4th element (A)
+      hash = ((hash << 5) + hash) + data[i];
+      hash |= 0;
+    }
+    return (hash >>> 0).toString(16).padStart(8,'0');
+  }
+
+  function drawAndHash() {
+    const c4 = document.getElementById("c4");
+    const ctx4 = c4.getContext("2d");
+
+    // clear and draw
+    ctx4.clearRect(0,0,c4.width,c4.height);
+    ctx4.strokeStyle = "#00f";
+
+    ctx4.lineWidth = 2;
+    ctx4.beginPath();
+    ctx4.moveTo(2, 2);
+    ctx4.lineTo(7, 3);
+    ctx4.stroke();
+
+    ctx4.lineWidth = 3;
+    ctx4.beginPath();
+    ctx4.moveTo(2, 6);
+    ctx4.lineTo(7, 7);
+    ctx4.stroke();
+
+    // read ImageData and compute hashes
+    try {
+      const imgData4 = ctx4.getImageData(0, 0, c4.width, c4.height).data;
+      document.getElementById("hashC4").textContent = hashImageData(imgData4);
+      document.getElementById("hashC4a").textContent = hashAlphaChannel(imgData4);
+    } catch (e) {
+      document.getElementById("hashC4").textContent = 'error: ' + e.message;
+      document.getElementById("hashC4a").textContent = 'error';
+    }
+  }
+
+  // run on load
+  window.addEventListener('load', drawAndHash);
+</script>
+</body>
+</html>
