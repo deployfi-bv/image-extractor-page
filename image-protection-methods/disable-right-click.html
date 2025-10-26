@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disable Right-Click Method</title>
+    <link rel="stylesheet" href="../css/tailwind/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Method 1: Disable Right-Click</h1>
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">How it Works</h2>
+            <p class="text-gray-600 mb-4">
+                This method uses a small piece of JavaScript to prevent the browser's context menu (the menu that appears when you right-click) from opening. When a user tries to right-click on an image to save it, nothing will happen.
+            </p>
+            <p class="text-gray-600 mb-4">
+                <strong>Limitation:</strong> This is a very basic protection. It won't stop users who know how to use browser developer tools to find the image source directly.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Example</h2>
+            <p class="text-gray-600 mb-4">Here is an image with right-click disabled. Try right-clicking on it.</p>
+            <div class="text-center my-8">
+                <img src="../images/hero.png" alt="Protected Image" class="mx-auto max-w-full h-auto rounded-lg shadow-md" oncontextmenu="return false;">
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">The Code</h2>
+            <p class="text-gray-600 mb-4">To use this method, add the <code>oncontextmenu="return false;"</code> attribute to your image tag.</p>
+            <div class="bg-gray-800 text-white p-4 rounded-lg">
+                <pre><code>&lt;img src="your-image.jpg" oncontextmenu="return false;"&gt;</code></pre>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <a href="index.html" class="text-gray-500 hover:underline">&larr; Back to All Methods</a>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <ul class="flex justify-center items-center space-x-4">
+                    <li><a href="../privacy_policy.htm" class="hover:text-blue-400">Privacy Policy</a></li>
+                    <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                    <li><a href="../contact.html" class="hover:text-blue-400">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="text-center mt-8">
+                <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Image Extractor. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+</html>

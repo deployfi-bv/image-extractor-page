@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watermarking Method</title>
+    <link rel="stylesheet" href="../css/tailwind/tailwind.min.css">
+    <style>
+        .watermarked-container {
+            position: relative;
+            display: inline-block;
+        }
+        .watermark {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Method 4: Add a Watermark</h1>
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">How it Works</h2>
+            <p class="text-gray-600 mb-4">
+                Watermarking involves adding a visible logo, text, or pattern over your image. This doesn't technically stop anyone from downloading the image, but it makes it less appealing for them to use it, as your brand or name is attached.
+            </p>
+            <p class="text-gray-600 mb-4">
+                You can add a watermark using image editing software (like Photoshop or GIMP) before you upload the image. Alternatively, you can add it on-the-fly using HTML and CSS, though this is less secure.
+            </p>
+            <p class="text-gray-600 mb-4">
+                <strong>Benefit:</strong> If your watermarked image is shared, it can act as a form of marketing for your brand.
+            </p>
+
+            <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Example</h2>
+            <p class="text-gray-600 mb-4">Here is an image with a simple text watermark added using HTML and CSS.</p>
+            <div class="text-center my-8">
+                <div class="watermarked-container">
+                    <img src="../images/hero.png" alt="Watermarked Image" class="mx-auto max-w-full h-auto rounded-lg shadow-md">
+                    <div class="watermark">Your Brand &copy;</div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">The Code (HTML/CSS Method)</h2>
+            <p class="text-gray-600 mb-4">To create a simple watermark with CSS, you wrap the image in a container and add another element for the watermark text.</p>
+            <div class="bg-gray-800 text-white p-4 rounded-lg mb-4">
+                <pre><code>&lt;div class="watermarked-container"&gt;
+    &lt;img src="your-image.jpg" alt="My Image"&gt;
+    &lt;div class="watermark"&gt;Your Brand &copy;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <p class="text-gray-600 mb-4">Then, use CSS to style and position the watermark.</p>
+            <div class="bg-gray-800 text-white p-4 rounded-lg">
+                <pre><code>.watermarked-container {
+    position: relative;
+    display: inline-block;
+}
+
+.watermark {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}</code></pre>
+            </div>
+        </div>
+        <div class="text-center mt-12">
+            <a href="index.html" class="text-gray-500 hover:underline">&larr; Back to All Methods</a>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-white mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <ul class="flex justify-center items-center space-x-4">
+                    <li><a href="../privacy_policy.htm" class="hover:text-blue-400">Privacy Policy</a></li>
+                    <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                    <li><a href="../contact.html" class="hover:text-blue-400">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="text-center mt-8">
+                <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Image Extractor. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    </div>
+</body>
+</html>
