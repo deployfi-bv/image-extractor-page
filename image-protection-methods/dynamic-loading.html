@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic JavaScript Loading Method - Image Protection</title>
+    <link rel="stylesheet" href="../css/tailwind/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Method 6: Dynamic JavaScript Loading</h1>
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">How it Works</h2>
+        <p class="text-gray-600 mb-4">
+            This method dynamically inserts images into the webpage using JavaScript after the page loads. Instead of having a static <code>&lt;img&gt;</code> tag in the HTML, the script generates the image elements on-the-fly.
+        </p>
+
+        <p class="text-gray-600 mb-4">
+            Since the images are not present in the initial HTML, basic right-clicking or viewing the page source will not reveal the direct image URLs.
+        </p>
+
+        <p class="text-gray-600 mb-4">
+            <strong>Limitation:</strong> Advanced users can still inspect the DOM after the script runs or monitor network requests to get the image sources.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">The Code</h2>
+        <p class="text-gray-600 mb-4">You can generate images dynamically with JavaScript like this:</p>
+
+        <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+<pre><code>&lt;div id="imageContainer"&gt;&lt;/div&gt;
+&lt;script&gt;
+  const container = document.getElementById('imageContainer');
+  const img = document.createElement('img');
+  img.src = 'your-image.jpg';
+  img.alt = 'Protected Image';
+  img.className = 'rounded-lg shadow-md';
+  container.appendChild(img);
+&lt;/script&gt;
+</code></pre>
+        </div>
+
+        <p class="text-gray-600 mt-6">
+            This approach hides image URLs from basic page inspection, providing an additional layer of protection for casual users.
+        </p>
+    </div>
+
+    <div class="text-center mt-12">
+        <a href="index.html" class="text-gray-500 hover:underline">&larr; Back to All Methods</a>
+    </div>
+</div>
+
+<footer class="bg-gray-800 text-white mt-12">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center">
+            <ul class="flex justify-center items-center space-x-4">
+                <li><a href="../privacy_policy.htm" class="hover:text-blue-400">Privacy Policy</a></li>
+                <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                <li><a href="../contact.html" class="hover:text-blue-400">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="text-center mt-8">
+            <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Image Extractor. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

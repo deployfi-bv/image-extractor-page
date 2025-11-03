@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Rendering Method - Image Protection</title>
+    <link rel="stylesheet" href="../css/tailwind/tailwind.min.css">
+</head>
+<body class="bg-gray-100 font-sans">
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Method 5: Canvas Rendering</h1>
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">How it Works</h2>
+        <p class="text-gray-600 mb-4">
+            This protection method uses the HTML5 <code>&lt;canvas&gt;</code> element to draw images directly on a rendering surface rather than displaying them as standard <code>&lt;img&gt;</code> tags.
+            Since the image is converted into pixels inside the canvas, users cannot simply right-click or inspect the source to find a direct image file.
+        </p>
+
+        <p class="text-gray-600 mb-4">
+            When a user tries to download the image, the context menu will not show a “Save Image As...” option, because the content is rendered programmatically.
+        </p>
+
+        <p class="text-gray-600 mb-4">
+            <strong>Limitation:</strong> Advanced users can still extract the image data using JavaScript (e.g., with <code>canvas.toDataURL()</code>) or capture the canvas as a screenshot.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">The Code</h2>
+        <p class="text-gray-600 mb-4">Below is the code that displays an image using a &lt;canvas&gt; element instead of a regular &lt;img&gt; tag:</p>
+        <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+<pre><code>&lt;canvas id="protectedImage" width="400" height="300"&gt;&lt;/canvas&gt;
+&lt;script&gt;
+  const canvas = document.getElementById('protectedImage');
+  const ctx = canvas.getContext('2d');
+  const img = new Image();
+  img.src = 'your-image.jpg';
+  img.onload = () =&gt; ctx.drawImage(img, 0, 0, 400, 300);
+&lt;/script&gt;
+</code></pre>
+        </div>
+
+        <p class="text-gray-600 mt-6">
+            This method effectively hides the image’s file path, but can still be bypassed by those familiar with JavaScript or browser developer tools.
+        </p>
+    </div>
+
+    <div class="text-center mt-12">
+        <a href="index.html" class="text-gray-500 hover:underline">&larr; Back to All Methods</a>
+    </div>
+</div>
+
+<footer class="bg-gray-800 text-white mt-12">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center">
+            <ul class="flex justify-center items-center space-x-4">
+                <li><a href="../privacy_policy.htm" class="hover:text-blue-400">Privacy Policy</a></li>
+                <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                <li><a href="../contact.html" class="hover:text-blue-400">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="text-center mt-8">
+            <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Image Extractor. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

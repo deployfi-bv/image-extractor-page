@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slicing / CSS Sprites Method - Image Protection</title>
+    <link rel="stylesheet" href="../css/tailwind/tailwind.min.css">
+    <style>
+        .sprite-container {
+            width: 300px; /* Width of a single slice */
+            height: 200px; /* Height of a single slice */
+            overflow: hidden;
+            position: relative;
+            margin: 0 auto;
+        }
+        .sprite {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Method 7: Image Slicing / CSS Sprites</h1>
+    <div class="bg-white p-8 rounded-lg shadow-lg max-w-3xl mx-auto">
+
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">How it Works</h2>
+        <p class="text-gray-600 mb-4">
+            This method divides a single image into multiple smaller slices and positions them together using CSS. The full image is reconstructed visually, but no single slice contains the full image.
+        </p>
+
+        <p class="text-gray-600 mb-4">
+            By splitting the image, direct right-clicking on one piece will only give the user a fragment, making it harder to reuse the full image without additional effort.
+        </p>
+
+        <p class="text-gray-600 mb-4">
+            <strong>Limitation:</strong> Advanced users can still reconstruct the image manually, but this method deters casual copying.
+        </p>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">Example</h2>
+        <p class="text-gray-600 mb-4">Below is an example using CSS sprites (3 slices vertically):</p>
+
+        <div class="sprite-container" style="position: relative; width: 200px; height: 300px;">
+            <img src="../images/hero-slice1.png" class="sprite" style="position: absolute; top: 0; left: 0;" alt="Slice 1">
+            <img src="../images/hero-slice2.png" class="sprite" style="position: absolute; top: 100px; left: 0;" alt="Slice 2">
+            <img src="../images/hero-slice3.png" class="sprite" style="position: absolute; top: 200px; left: 0;" alt="Slice 3">
+        </div>
+
+        <h2 class="text-2xl font-bold text-gray-800 mt-8 mb-4">The Code</h2>
+        <p class="text-gray-600 mb-4">You can slice images and use CSS to position them:</p>
+
+        <div class="bg-gray-800 text-white p-4 rounded-lg overflow-x-auto">
+<pre><code>&lt;div class="sprite-container"&gt;
+  &lt;img src="slice1.png" class="sprite" style="left: 0;"&gt;
+  &lt;img src="slice2.png" class="sprite" style="left: 100px;"&gt;
+  &lt;img src="slice3.png" class="sprite" style="left: 200px;"&gt;
+&lt;/div&gt;
+
+.sprite-container {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.sprite {
+  position: absolute;
+  top: 0;
+}
+</code></pre>
+        </div>
+
+        <p class="text-gray-600 mt-6">
+            This method visually reconstructs the image while preventing easy copying of the whole picture.
+        </p>
+    </div>
+
+    <div class="text-center mt-12">
+        <a href="index.html" class="text-gray-500 hover:underline">&larr; Back to All Methods</a>
+    </div>
+</div>
+
+<footer class="bg-gray-800 text-white mt-12">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center">
+            <ul class="flex justify-center items-center space-x-4">
+                <li><a href="../privacy_policy.htm" class="hover:text-blue-400">Privacy Policy</a></li>
+                <li><a href="../terms.html" class="hover:text-blue-400">Terms & Conditions</a></li>
+                <li><a href="../contact.html" class="hover:text-blue-400">Contact Us</a></li>
+            </ul>
+        </div>
+        <div class="text-center mt-8">
+            <p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> Image Extractor. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
