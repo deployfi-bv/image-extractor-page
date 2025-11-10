@@ -11,12 +11,36 @@
         <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
             <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Contact Us</h1>
             <p class="text-lg text-gray-600 mb-6">
-                If you have any questions, feedback, or need support regarding the Image Extractor extension, please don't hesitate to reach out. We are here to help!
+                If you have any questions, feedback, or need support regarding the Image Extractor extension, please fill out the form below. We are here to help!
             </p>
-            <div class="text-center">
-                <p class="text-lg text-gray-600">You can email us at:</p>
-                <a href="mailto:verlibr.extensions@gmail.com" class="text-xl text-blue-500 hover:underline">verlibr.extensions@gmail.com</a>
-            </div>
+
+            <!-- Mock Contact Form - Requires Backend Integration to be Functional -->
+            <form action="#" method="POST" onsubmit="alert('Sorry this functionality under development...'); return false;">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+                        Name
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
+                        Email
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                        Message
+                    </label>
+                    <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+
             <p class="text-lg text-gray-600 mt-6">
                 We typically respond within 24-48 hours. Your feedback is important to us and helps us improve the extension for everyone.
             </p>
